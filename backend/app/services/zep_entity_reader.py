@@ -192,7 +192,7 @@ class ZepEntityReader:
         try:
             # 使用重试机制调用Zep API
             edges = self._call_with_retry(
-                func=lambda: self.client.graph.node.get_entity_edges(node_uuid=node_uuid),
+                func=lambda: self.client.graph.node.get_edges(node_uuid=node_uuid),
                 operation_name=f"获取节点边(node={node_uuid[:8]}...)"
             )
             
@@ -433,5 +433,4 @@ class ZepEntityReader:
             enrich_with_edges=enrich_with_edges
         )
         return result.entities
-
 
